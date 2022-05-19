@@ -40,7 +40,7 @@ public class Compte {
         cpt.depot(montant);
         return solde;
     }
-    public double consultation(double solde){
+    public double consultation(){
         return solde;
     }
 
