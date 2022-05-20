@@ -1,12 +1,14 @@
 public class Compte {
 
-    public Compte() {
-    }    
     // Attributs
     protected double solde;
-    protected int num;
+    private int num;
     // Attributs Navigationnel
     //many ton one avec Client
+    public Compte() {
+        int c = 0;
+        num = c++;
+    }    
     private Client client;
     public Compte(Client client) {
         this.client = client;
