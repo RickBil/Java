@@ -8,7 +8,8 @@ public class Compte {
     public Compte() {
         int c = 0;
         num = c++;
-    }    
+    } 
+    
     private Client client;
     public Compte(Client client) {
         this.client = client;
@@ -26,7 +27,7 @@ public class Compte {
     public void setNum(int num){
         this.num = num;
     }
-    public double retrait(double montant){
+    public void retrait(double montant){
         if (montant < solde){
             solde = solde - montant;
         }else{
@@ -34,7 +35,7 @@ public class Compte {
         }
         return solde;
     }
-    public double depot( double montant){
+    public void depot( double montant){
         return solde = (solde + montant);
     }
     public double virement( Compte cpt ,double montant ){
