@@ -22,9 +22,9 @@ public class VAgence {
 
             switch(choix){
                 case 1:
-                banqueService.listerAgence();
+                banqueService.listerAgence().forEach(System.out::println);
                     break;
-            }
+            } 
 
         } while(choix!=4);
     }
