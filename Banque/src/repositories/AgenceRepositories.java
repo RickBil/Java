@@ -15,10 +15,6 @@ public class AgenceRepositories {
     public void init_listAgence(){
         // Agence agence=new Agence("Point E","78 287 09 91");
         // agences.add(agence);
-        // Agence agence1=new Agence("Point E","78 287 09 91");
-        // agences.add(agence1);
-        // Agence agence2=new Agence("Point E","78 287 09 91");
-        // agences.add(agence2);
         agences.add(new Agence("Grand Dakar","33 021 23 12"));
         agences.add(new Agence("Fann","33 024 29 02"));
         agences.add(new Agence("HLM1","33 891 15 33"));
@@ -26,4 +22,18 @@ public class AgenceRepositories {
     public List<Agence> findAll() {
         return agences;
     }
+    public Agence insert(Agence agence){
+        agences.add(agence);
+        return agence;
+    }
+    public Agence findByNum(String num){
+        return agences
+         .stream()
+         .filter(x ->x.getNum().compareTo(num)==0)
+         .findFirst()
+         .orElse(null);
+
+    }
+
+
 }

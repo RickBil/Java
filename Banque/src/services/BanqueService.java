@@ -11,4 +11,12 @@ public class BanqueService {
     public List<Agence> listerAgence(){
         return agenceRepositories.findAll();
     }
+    public Agence ajouterAgence(Agence agence){
+        return agenceRepositories.insert(agence); 
+    }
+    public Agence rechercheByNumAgence(String num){
+        return agenceRepositories.findByNum(num); 
+    }
+
 }
+ 
