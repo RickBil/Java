@@ -11,7 +11,7 @@ public class AgenceRepositories {
     public AgenceRepositories() {
         init_listAgence();
     }
-
+    
     public void init_listAgence(){
         // Agence agence=new Agence("Point E","78 287 09 91");
         // agences.add(agence);
@@ -28,10 +28,10 @@ public class AgenceRepositories {
     }
     public Agence findByNum(String num){
         return agences
-         .stream()
-         .filter(x ->x.getNum().compareTo(num)==0)
-         .findFirst()
-         .orElse(null);
+        .stream()
+        .filter(x ->x.getNum().compareTo(num)==0)
+        .findFirst()
+        .orElse(null);
 
     }
 

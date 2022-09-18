@@ -5,6 +5,7 @@ import java.util.List;
 import entities.Agence;
 import repositories.AgenceRepositories;
 
+
 public class BanqueService {
 
     AgenceRepositories agenceRepositories= new AgenceRepositories();
@@ -18,5 +19,6 @@ public class BanqueService {
         return agenceRepositories.findByNum(num); 
     }
 
+    
+
 }
- 
