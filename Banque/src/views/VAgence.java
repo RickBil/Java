@@ -7,9 +7,8 @@ import services.BanqueService;
 
 public class VAgence {
     
-    public static void menu(){
+    public static void menu(BanqueService banqueService){
         Scanner clavier = new Scanner(System.in);
-        BanqueService banqueService =new BanqueService();
         int choix;
 
         do{
@@ -27,6 +26,7 @@ public class VAgence {
                     banqueService.listerAgence().forEach(System.out::println);
                         break;
                 case 2:
+                        
                         System.out.println(" Saisir le tél : ");
                         String tel=clavier.nextLine();
                         System.out.println(" Saisir l'address : ");
@@ -47,5 +47,7 @@ public class VAgence {
                     } 
                 System.out.println(" AU REVOIR !!! ");
                 } while(choix!=4);
+            
+            
             }  
 }

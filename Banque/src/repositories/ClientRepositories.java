@@ -13,7 +13,7 @@ public class ClientRepositories {
         clients.add(client);
         return client;
     }
-    public Client findByNum(String tel){
+    public Client findByTel(String tel){
         return clients
         .stream()
         .filter(x ->x.getTel().compareTo(tel)==0)

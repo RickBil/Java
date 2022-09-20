@@ -23,5 +23,11 @@ public class Cheque extends Compte{
     public void setFrais(double frais) {
         this.frais = frais;
     }
+
+    @Override
+    public String toString() {
+        
+        return "Cheque : "+ super.toString()+ "frais=" + frais + "]";
+    }
     
 }

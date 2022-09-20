@@ -57,5 +57,10 @@ abstract public class Compte {
         TypeCpt = typeCpt;
     }
 
+    @Override
+    public String toString() {
+        return " [id=" + id + ", num=" + num + ", solde=" + solde;
+    }
+
     
 }

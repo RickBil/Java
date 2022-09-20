@@ -6,6 +6,12 @@ public class Client extends User {
 
     //OneToMany avec Client
 
+    public Client(String nomComplet, String tel) {
+        super(nomComplet);
+        this.tel = tel;
+        role=Role.Client;
+
+    }
     public Client(String login, String password, String nomComplet, String tel) {
         super(login, password, nomComplet);
         this.tel = tel;
@@ -15,6 +21,8 @@ public class Client extends User {
         super();
         role=Role.Client;
     }
+    
+    
 
     public String getTel() {
         return tel;

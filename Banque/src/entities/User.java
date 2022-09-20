@@ -10,11 +10,21 @@ public class User {
     protected Role role;
 
 
+    public User(String nomComplet) {
+        NomComplet = nomComplet;
+        role=Role.Gestionnaire;
+        nbre++;
+        id=nbre;
+    }
+
+
     public User(String login, String password, String nomComplet) {
         this.login = login;
         this.password = password;
         NomComplet = nomComplet;
         role=Role.Gestionnaire;
+        nbre++;
+        id=nbre;
     }
 
 
