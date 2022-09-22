@@ -6,28 +6,28 @@ public class User {
     protected int id;
     protected String login;
     protected String password;
-    protected String NomComplet;
+    protected String nom;
+    protected String prenom;
     protected Role role;
 
-
-    public User(String nomComplet) {
-        NomComplet = nomComplet;
-        role=Role.Gestionnaire;
+    public User(String nom, String prenom) {
+        this.nom = nom;
+        this.prenom = prenom;
         nbre++;
         id=nbre;
+        role=Role.Gestionnaire;
     }
 
-
-    public User(String login, String password, String nomComplet) {
+    public User(String login, String password, String nom, String prenom) {
         this.login = login;
         this.password = password;
-        NomComplet = nomComplet;
-        role=Role.Gestionnaire;
+        this.nom = nom;
+        this.prenom = prenom;
         nbre++;
         id=nbre;
+        role=Role.Gestionnaire;
     }
-
-
+    
     public User() {
         nbre++;
         id=nbre;
@@ -53,19 +53,24 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getNomComplet() {
-        return NomComplet;
-    }
-    public void setNomComplet(String nomComplet) {
-        NomComplet = nomComplet;
-    }
+
     public Role getRole() {
         return role;
     }
     public void setRole(Role role) {
         this.role = role;
     }
-    
-
+    public String getNom() {
+        return nom;
+    }
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    public String getPrenom() {
+        return prenom;
+    }
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
     
 }

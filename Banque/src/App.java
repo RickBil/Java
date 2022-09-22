@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 import repositories.AgenceRepositories;
+import repositories.CarteRepositories;
 import repositories.ClientRepositories;
 import repositories.CompteRepositories;
 import services.BanqueService;
@@ -12,7 +13,8 @@ public class App {
         AgenceRepositories agenceRepositories= new AgenceRepositories();
         CompteRepositories compteRepositories =new CompteRepositories();
         ClientRepositories clientRepositories = new ClientRepositories();
-        BanqueService banqueService =new BanqueService(agenceRepositories,compteRepositories,clientRepositories);
+        CarteRepositories carteRepositories = new CarteRepositories();
+        BanqueService banqueService =new BanqueService(agenceRepositories,compteRepositories,clientRepositories,carteRepositories);
         
         Scanner clavier = new Scanner(System.in);
         int choix;

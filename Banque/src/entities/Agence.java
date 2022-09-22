@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Agence {
     
     private static int nbre;
@@ -7,6 +10,9 @@ public class Agence {
     private String num;
     private String address;
     private String tel;
+
+    //OneToMany avec Compte
+    private List<Compte> comptes=new ArrayList<>();
 
     // Constructeur par defaut
     public Agence() {

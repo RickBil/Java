@@ -1,22 +1,33 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Client extends User {
 
     private String tel;
 
-    //OneToMany avec Client
-
-    public Client(String nomComplet, String tel) {
-        super(nomComplet);
-        this.tel = tel;
-        role=Role.Client;
-
+    //OneToMany avec Compte
+    private List<Compte> comptes=new ArrayList<>();
+    
+    public List<Compte> getComptes() {
+        return comptes;
     }
-    public Client(String login, String password, String nomComplet, String tel) {
-        super(login, password, nomComplet);
-        this.tel = tel;
-        role=Role.Client;
+
+    public void setComptes(List<Compte> comptes) {
+        this.comptes = comptes;
     }
+
+    public Client(String login, String password, String nom, String prenom, String tel) {
+        super(login, password, nom, prenom);
+        this.tel = tel;
+    }
+
+    public Client(String nom, String prenom, String tel) {
+        super(nom, prenom);
+        this.tel = tel;
+    }
+    
     public Client(String tel) {
         super();
         role=Role.Client;

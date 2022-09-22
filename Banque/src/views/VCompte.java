@@ -2,6 +2,8 @@ package views;
 
 import java.util.Scanner;
 
+import entities.Agence;
+import entities.Carte;
 import entities.Cheque;
 import entities.Client;
 import entities.Compte;
@@ -11,14 +13,18 @@ import services.BanqueService;
 public class VCompte {
     
     public static void menu(BanqueService banqueService){
-        Scanner clavier = new Scanner(System.in);
         int choix;
+        String tel;
+        Client client=null;
+        Compte compte=null;
+        Scanner clavier = new Scanner(System.in);
 
         do{
-            System.out.println("1: Creer un Compte ");
-            System.out.println("2: Lister les Comptes d'un Clients ");
-            System.out.println("3: Rechercher");
-            System.out.println("4: Quitter");
+            System.out.println("1: Lister ");
+            System.out.println("2: Ajouter ");
+            System.out.println("3: Lister les comptes d'un client ");
+            System.out.println("4: Affecter une carte ");
+            System.out.println("5: Quiter ");
             System.out.println( "Faites votre choix !");
 
             choix=clavier.nextInt();
@@ -26,15 +32,22 @@ public class VCompte {
 
             switch(choix){
             case 1:
-                System.out.println(" Saisir le tel :");
-                String tel=clavier.nextLine();
-                Client client = banqueService.rechercheClientByTel(tel);
+                banqueService.listerComptes().forEach(System.out::println);
+                break;
+            case 2:
+                System.out.println(" Entrer le Nom et Prenom du client  ");
+                System.out.println(" Entrer le numero de téléphone");
+                tel=clavier.nextLine();
+                client = banqueService.rechercheClientByTel(tel);
                 if(client==null){
-                    System.out.println(" Saisir le Nom et Prenom :");
-                    String nomComplet=clavier.nextLine();
-                    client = new Client(nomComplet, tel);
+                    System.out.println(" Saisir le Nom :");
+                    String nom=clavier.nextLine();
+                    System.out.println(" Saisir le Prenom :");
+                    String prenom=clavier.nextLine();
+                    client = new Client(nom,prenom,tel);
                     banqueService.creerClient(client);
                 }
+                System.out.println(" Infos du compte");
                 System.out.println(" Saisir le Solde :");
                 double solde=clavier.nextDouble();
                 int type;
@@ -45,33 +58,53 @@ public class VCompte {
                     type=clavier.nextInt();
                     
                 }while(type !=1 && type !=2);
-                Compte cpt;
                 if(type == 1){
                     System.out.println(" Saisir le Taux :");
                     double taux=clavier.nextDouble();
-                    cpt = new Epargne(solde, taux);
+                    compte = new Epargne(solde, taux);
                 }else{
                     System.out.println(" Saisir le Frais :");
                     double frais=clavier.nextDouble();
-                    cpt = new Cheque(solde, frais);
+                    compte = new Cheque(solde, frais);
                 }
-                cpt.setClient(client);
-                banqueService.creerCompte(cpt);
-                        break;
-            case 2:
+                Agence agence=null ;
+                clavier.nextLine();
+                do{
+                    System.out.println("Infos agence ");
+                    banqueService.listerAgence().forEach(System.out::println);
+                    System.out.println(" Entrer le numero de L'agence");
+                    String num=clavier.nextLine();
+                    banqueService.rechercheByNumAgence(num);
+                }while(agence==null);
+                compte.setClient(client);
+                compte.setAgence(agence);
+                banqueService.creerCompte(compte);
+                    break;
+            case 3:
                 System.out.println(" Saisir le tel :");
                 tel=clavier.nextLine();
-                banqueService.listerComptesClient(tel).forEach(cp->{
-                    System.out.println(cp);
-                });
+                client= banqueService.rechercheClientByTel(tel);
+                if(client!=null){
+                    client.getComptes().forEach(System.out::println);
+                }
                         break;
-            case 3:
-                    
+            case 4:
+                System.out.println(" Entrer le numero du compte");
+                String num=clavier.nextLine();
+                compte= banqueService.rechercheCompte(num);
+                if(compte!=null){
+                    System.out.println(" Choisir une carte ");
+                    banqueService.listerCarte().forEach(System.out::println);
+                    num=clavier.nextLine();
+                    Carte carte = banqueService.rechercheCarte(num);
+                    if(carte!=null){
+                        compte.setCarte(carte);
+                    }
+                }
                         break;
                     } 
                 System.out.println(" AU REVOIR !!! ");
-                } while(choix!=4);
-            
+                } while(choix!=5);
             
             }
 }

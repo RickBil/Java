@@ -14,10 +14,19 @@ public class CompteRepositories {
         comptes.add(compte);
         return compte;
     }
+    public List<Compte> findAll(){
+        return comptes;
+    }
     public List<Compte> findByClient(String tel){
         return comptes
         .stream()
         .filter(cpt ->cpt.getClient().getTel().compareTo(tel)==0)
         .collect(Collectors.toList());
+    }
+    public Compte findByNum(String num){
+        return comptes.stream()
+        .filter(c ->c.getNum().compareTo(num)==0)
+        .findFirst()
+        .orElse(null);
     }
 }
