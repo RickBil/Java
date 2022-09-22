@@ -35,7 +35,7 @@ public class VCompte {
                 banqueService.listerComptes().forEach(System.out::println);
                 break;
             case 2:
-                System.out.println(" Entrer le Nom et Prenom du client  ");
+                System.out.println("Infos du compte !!! ");
                 System.out.println(" Entrer le numero de téléphone");
                 tel=clavier.nextLine();
                 client = banqueService.rechercheClientByTel(tel);
@@ -47,7 +47,7 @@ public class VCompte {
                     client = new Client(nom,prenom,tel);
                     banqueService.creerClient(client);
                 }
-                System.out.println(" Infos du compte");
+                System.out.println(" Infos du compte !!!");
                 System.out.println(" Saisir le Solde :");
                 double solde=clavier.nextDouble();
                 int type;
@@ -70,11 +70,11 @@ public class VCompte {
                 Agence agence=null ;
                 clavier.nextLine();
                 do{
-                    System.out.println("Infos agence ");
+                    System.out.println("Infos agence !!! ");
                     banqueService.listerAgence().forEach(System.out::println);
                     System.out.println(" Entrer le numero de L'agence");
                     String num=clavier.nextLine();
-                    banqueService.rechercheByNumAgence(num);
+                    agence = banqueService.rechercheByNumAgence(num);
                 }while(agence==null);
                 compte.setClient(client);
                 compte.setAgence(agence);
@@ -83,7 +83,7 @@ public class VCompte {
             case 3:
                 System.out.println(" Saisir le tel :");
                 tel=clavier.nextLine();
-                client= banqueService.rechercheClientByTel(tel);
+                client=banqueService.rechercheClientByTel(tel);
                 if(client!=null){
                     client.getComptes().forEach(System.out::println);
                 }

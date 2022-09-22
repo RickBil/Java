@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-import repositories.AgenceRepositories;
-import repositories.CarteRepositories;
-import repositories.ClientRepositories;
 import repositories.CompteRepositories;
+import repositories.liste.AgenceRepositories;
+import repositories.liste.CarteRepositories;
+import repositories.liste.ClientRepositories;
 import services.BanqueService;
 import views.VAgence;
 import views.VCompte;

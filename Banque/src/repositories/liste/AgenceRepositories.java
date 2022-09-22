@@ -1,4 +1,4 @@
-package repositories;
+package repositories.liste;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +18,7 @@ public class AgenceRepositories {
         agences.add(new Agence("Grand Dakar","33 021 23 12"));
         agences.add(new Agence("Fann","33 024 29 02"));
         agences.add(new Agence("HLM1","33 891 15 33"));
+        agences.add(new Agence("Point E","33 289 40 09"));
     }
     public List<Agence> findAll() {
         return agences;

@@ -6,25 +6,26 @@ import entities.Agence;
 import entities.Carte;
 import entities.Client;
 import entities.Compte;
-import repositories.AgenceRepositories;
-import repositories.CarteRepositories;
-import repositories.ClientRepositories;
-import repositories.CompteRepositories;
+import repositories.liste.CompteRepositories;
+import repositories.liste.AgenceRepositories;
+import repositories.liste.CarteRepositories;
+import repositories.liste.ClientRepositories;
 
 
 public class BanqueService {
     // Objects
     AgenceRepositories agenceRepositories;
-    CompteRepositories compteRepositories ;
+    repositories.CompteRepositories compteRepositories ;
     ClientRepositories clientRepositories ;
     CarteRepositories carteRepositories ;
 
 
-    public BanqueService(AgenceRepositories agenceRepositories, CompteRepositories compteRepositories,
+    public BanqueService(AgenceRepositories agenceRepositories, repositories.CompteRepositories compteRepositories2,
             ClientRepositories clientRepositories, CarteRepositories carteRepositories ) {
         this.agenceRepositories = agenceRepositories;
-        this.compteRepositories = compteRepositories;
+        this.compteRepositories = compteRepositories2;
         this.clientRepositories = clientRepositories;
+        this.carteRepositories = carteRepositories;
     }
     // UseCases : Agence
     public List<Agence> listerAgence(){
@@ -36,7 +37,7 @@ public class BanqueService {
     public Agence rechercheByNumAgence(String num){
         return agenceRepositories.findByNum(num); 
     }
-    // UseCases : Agence
+    // UseCases : Compte
     public Compte creerCompte(Compte compte){
         return compteRepositories.insert(compte);
     }
