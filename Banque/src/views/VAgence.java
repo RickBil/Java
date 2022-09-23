@@ -3,11 +3,11 @@ package views;
 import java.util.Scanner;
 
 import entities.Agence;
-import services.BanqueService;
+import services.IBanqueService;
 
 public class VAgence {
     
-    public static void menu(BanqueService banqueService){
+    public static void menu(IBanqueService banqueService){
         Scanner clavier = new Scanner(System.in);
         int choix;
 

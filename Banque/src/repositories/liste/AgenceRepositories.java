@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entities.Agence;
-public class AgenceRepositories {
+import repositories.IAgence;
+
+public class AgenceRepositories implements IAgence {
     //BD
     List<Agence> agences =new ArrayList<>();
 
@@ -20,13 +22,16 @@ public class AgenceRepositories {
         agences.add(new Agence("HLM1","33 891 15 33"));
         agences.add(new Agence("Point E","33 289 40 09"));
     }
+    @Override
     public List<Agence> findAll() {
         return agences;
     }
+    @Override
     public Agence insert(Agence agence){
         agences.add(agence);
         return agence;
     }
+    @Override
     public Agence findByNum(String num){
         return agences
         .stream()

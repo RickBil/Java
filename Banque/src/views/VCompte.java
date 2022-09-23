@@ -8,11 +8,11 @@ import entities.Cheque;
 import entities.Client;
 import entities.Compte;
 import entities.Epargne;
-import services.BanqueService;
+import services.IBanqueService;
 
 public class VCompte {
     
-    public static void menu(BanqueService banqueService){
+    public static void menu(IBanqueService banqueService){
         int choix;
         String tel;
         Client client=null;
@@ -58,6 +58,7 @@ public class VCompte {
                     type=clavier.nextInt();
                     
                 }while(type !=1 && type !=2);
+                
                 if(type == 1){
                     System.out.println(" Saisir le Taux :");
                     double taux=clavier.nextDouble();

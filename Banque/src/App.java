@@ -1,20 +1,25 @@
 import java.util.Scanner;
 
-import repositories.CompteRepositories;
-import repositories.liste.AgenceRepositories;
+import repositories.IAgence;
+import repositories.ICarte;
+import repositories.IClient;
+import repositories.ICompte;
+import repositories.bd.AgenceRepositories;
 import repositories.liste.CarteRepositories;
 import repositories.liste.ClientRepositories;
+import repositories.liste.CompteRepositories;
 import services.BanqueService;
+import services.IBanqueService;
 import views.VAgence;
 import views.VCompte;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        AgenceRepositories agenceRepositories= new AgenceRepositories();
-        CompteRepositories compteRepositories =new CompteRepositories();
-        ClientRepositories clientRepositories = new ClientRepositories();
-        CarteRepositories carteRepositories = new CarteRepositories();
-        BanqueService banqueService =new BanqueService(agenceRepositories,compteRepositories,clientRepositories,carteRepositories);
+        IAgence agenceRepositories = new AgenceRepositories();
+        ICompte compteRepositories = new CompteRepositories();
+        IClient clientRepositories = new ClientRepositories();
+        ICarte carteRepositories = new CarteRepositories();
+        IBanqueService banqueService =new BanqueService(agenceRepositories,compteRepositories,clientRepositories,carteRepositories);
         
         Scanner clavier = new Scanner(System.in);
         int choix;
