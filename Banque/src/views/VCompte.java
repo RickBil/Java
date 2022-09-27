@@ -44,9 +44,18 @@ public class VCompte {
                     String nom=clavier.nextLine();
                     System.out.println(" Saisir le Prenom :");
                     String prenom=clavier.nextLine();
-                    client = new Client(nom,prenom,tel);
+                    System.out.println(" Saisir le Login :");
+                    String login=clavier.nextLine();
+                    System.out.println(" Saisir le mots de passe :");
+                    String password=clavier.nextLine();
+                    client = new Client(login, password, nom, prenom, tel);
                     banqueService.creerClient(client);
                 }
+                banqueService.listerAgence().forEach(System.out::println);
+                System.out.println(" Saisir l'id de l'agence");
+                int idAgence=clavier.nextInt();
+                Agence agence =new Agence(idAgence);
+
                 System.out.println(" Infos du compte !!!");
                 System.out.println(" Saisir le Solde :");
                 double solde=clavier.nextDouble();
@@ -56,9 +65,7 @@ public class VCompte {
                     System.out.println("2: Cheque :");
                     System.out.println(" Choisir le type de compte !");
                     type=clavier.nextInt();
-                    
                 }while(type !=1 && type !=2);
-                
                 if(type == 1){
                     System.out.println(" Saisir le Taux :");
                     double taux=clavier.nextDouble();
@@ -68,7 +75,6 @@ public class VCompte {
                     double frais=clavier.nextDouble();
                     compte = new Cheque(solde, frais);
                 }
-                Agence agence=null ;
                 clavier.nextLine();
                 do{
                     System.out.println("Infos agence !!! ");
@@ -77,6 +83,7 @@ public class VCompte {
                     String num=clavier.nextLine();
                     agence = banqueService.rechercheByNumAgence(num);
                 }while(agence==null);
+                
                 compte.setClient(client);
                 compte.setAgence(agence);
                 banqueService.creerCompte(compte);

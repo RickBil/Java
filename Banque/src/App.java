@@ -6,8 +6,8 @@ import repositories.IClient;
 import repositories.ICompte;
 import repositories.bd.AgenceRepositories;
 import repositories.liste.CarteRepositories;
-import repositories.liste.ClientRepositories;
-import repositories.liste.CompteRepositories;
+import repositories.bd.ClientRepositories;
+import repositories.bd.CompteRepositories;
 import services.BanqueService;
 import services.IBanqueService;
 import views.VAgence;
@@ -16,8 +16,8 @@ import views.VCompte;
 public class App {
     public static void main(String[] args) throws Exception {
         IAgence agenceRepositories = new AgenceRepositories();
-        ICompte compteRepositories = new CompteRepositories();
         IClient clientRepositories = new ClientRepositories();
+        ICompte compteRepositories = new CompteRepositories(clientRepositories);
         ICarte carteRepositories = new CarteRepositories();
         IBanqueService banqueService =new BanqueService(agenceRepositories,compteRepositories,clientRepositories,carteRepositories);
         

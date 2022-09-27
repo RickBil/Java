@@ -14,6 +14,9 @@ public class Agence {
     //OneToMany avec Compte
     private List<Compte> comptes=new ArrayList<>();
 
+    public Agence(int id) {
+        this.id = id;
+    }
     public Agence(int id, String num, String address, String tel) {
         this.id = id;
         this.num = num;

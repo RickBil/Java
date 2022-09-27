@@ -22,4 +22,9 @@ public class ClientRepositories implements IClient{
         .findFirst()
         .orElse(null);
     }
+    @Override
+    public Client findById(int id) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

@@ -1,6 +1,6 @@
 package entities;
 
 
-enum TypeCpt{
+public enum TypeCpt{
     Cheque,Epargne
 }

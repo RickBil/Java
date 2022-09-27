@@ -10,7 +10,6 @@ abstract public class Compte {
 
     //ManyToOne avec Client
     protected Client client;
-
     
     public Client getClient() {
         return client;
@@ -32,6 +31,12 @@ abstract public class Compte {
     }
 
     public Carte carte;
+
+    public Compte(int id, String num, double solde) {
+        this.id = id;
+        this.num = num;
+        this.solde = solde;
+    }
 
     public Carte getCarte() {
         return carte;

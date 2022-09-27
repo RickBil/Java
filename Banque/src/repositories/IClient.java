@@ -6,4 +6,5 @@ public interface IClient {
     
     public Client insert(Client client);
     public Client findByTel(String tel);
+    public Client findById(int id);
 }

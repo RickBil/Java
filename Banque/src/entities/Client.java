@@ -10,6 +10,11 @@ public class Client extends User {
     //OneToMany avec Compte
     private List<Compte> comptes=new ArrayList<>();
     
+    public Client(int id, String login, String password, String nom, String prenom, Role role, String tel) {
+        super(id, login, password, nom, prenom, role);
+        this.tel = tel;
+    }
+
     public List<Compte> getComptes() {
         return comptes;
     }

@@ -5,6 +5,11 @@ public class Cheque extends Compte{
     private double frais;
     
 
+    public Cheque(int id, String num, double solde, double frais) {
+        super(id, num, solde);
+        this.frais = frais;
+    }
+
     public Cheque(double solde, double frais) {
         super(solde);
         this.frais = frais;

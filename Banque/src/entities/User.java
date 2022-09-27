@@ -2,7 +2,6 @@ package entities;
 
 public class User {
     
-    private static int nbre;
     protected int id;
     protected String login;
     protected String password;
@@ -10,11 +9,18 @@ public class User {
     protected String prenom;
     protected Role role;
 
+    public User(int id, String login, String password, String nom, String prenom, Role role) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.role = role;
+    }
+
     public User(String nom, String prenom) {
         this.nom = nom;
         this.prenom = prenom;
-        nbre++;
-        id=nbre;
         role=Role.Gestionnaire;
     }
 
@@ -23,14 +29,10 @@ public class User {
         this.password = password;
         this.nom = nom;
         this.prenom = prenom;
-        nbre++;
-        id=nbre;
         role=Role.Gestionnaire;
     }
     
     public User() {
-        nbre++;
-        id=nbre;
         role=Role.Gestionnaire;
     }
     

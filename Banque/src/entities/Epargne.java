@@ -4,6 +4,11 @@ public class Epargne extends Compte{
 
     private double taux;
 
+    public Epargne(int id, String num, double solde, double taux) {
+        super(id, num, solde);
+        this.taux = taux;
+    }
+
     public Epargne(double solde, double taux) {
         super(solde);
         this.taux = taux;
