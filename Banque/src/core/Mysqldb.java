@@ -15,7 +15,7 @@ public class Mysqldb implements IDatabase {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             try {
-                conn= DriverManager.getConnection("jdbc:mysql://localhost:8889/java_banque","root", "root");
+                conn= DriverManager.getConnection("jdbc:mysql://localhost:8889/banque_java","root", "root");
             }catch (SQLException e){
                 e.printStackTrace();
             }
